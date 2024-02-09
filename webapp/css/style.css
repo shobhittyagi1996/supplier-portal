@@ -1,0 +1,16 @@
+/* Enter your custom styles here */
+.aaa{
+    background-image: url("https://ui5.sap.com/resources/sap/ui/documentation/sdk/images/Home_M_and_L_cropped_1.jpg");
+}
+.bb{
+    font-weight: bold;
+    color: white;
+    margin-left: 400px;
+    margin-top: 150px;
+    font-size: xx-large;
+    
+}
+.cc{
+    margin-top: 20px;
+    margin-left: 500px;
+}

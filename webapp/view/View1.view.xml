@@ -1,0 +1,880 @@
+<mvc:View
+    controllerName="com.sap.supplierportal.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:tnt="sap.tnt"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:upload="sap.m.upload"
+    height="100%"
+    xmlns:uxap="sap.uxap"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:u="sap.ui.unified"
+>
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader id="_IDGenToolHeader1">
+                <Image
+                    id="_IDGenImage1"
+                    height="1.5rem"
+                    class="sapUiSmallMarginBegin"
+                    src="https://www.kpo.kz/fileadmin/template/img/logon.png"
+                />
+                <Title
+                    level="H1"
+                    text="Supplier Portal"
+                    wrapping="false"
+                    id="sp1"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            id="_IDGenOverflowToolbarLayoutData1"
+                            priority="Disappear"
+                        />
+                    </layoutData>
+                </Title>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:subHeader>
+            <tnt:ToolHeader id="_IDGenToolHeader2">
+                <IconTabHeader
+                    id="_IDGenIconTabHeader1"
+                    selectedKey="{/selectedKey}"
+                    items=""
+                    select="onItemSelect"
+                    mode="Inline"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            id="_IDGenOverflowToolbarLayoutData2"
+                            priority="NeverOverflow"
+                            shrinkable="true"
+                        />
+                    </layoutData>
+                    <items>
+                        <IconTabFilter
+                            id="_IDGenIconTabFilter1"
+                            text="HOME"
+                            key="page1"
+                        />
+
+                        <IconTabFilter
+                            id="_IDGenIconTabFilter2"
+                            text="SUPPLIER REGISTRATION"
+                            key="page2"
+                        />
+                        <IconTabFilter
+                            id="_IDGenIconTabFilter3"
+                            text="MANAGE CONTRACTS"
+                            key="page3"
+                        />
+                    </items>
+                </IconTabHeader>
+            </tnt:ToolHeader>
+        </tnt:subHeader>
+        <tnt:mainContents>
+            <NavContainer
+                id="pageContainer"
+                initialPage="page1"
+            >
+                <pages>
+                    <ScrollContainer
+                        id="page1"
+                        horizontal="false"
+                        vertical="true"
+                        height="80%"
+                        class="aaa"
+                    >
+                        <Text
+                            id="_IDGenText1"
+                            text="Welcome To Supplier Portal"
+                            class="bb"
+                        />
+                        <Button
+                            id="_IDGenButton1"
+                            text="Started with Registration"
+                            class="cc"
+                            press="onpress"
+                        />
+                    </ScrollContainer>
+
+                    <Page id="page3">
+                        <uxap:ObjectPageLayout
+                            id="ObjectPageLayout"
+                            upperCaseAnchorBar="false"
+                            showAnchorBar="true"
+                            enableLazyLoading="true"
+                        >
+                            <uxap:sections>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection3"
+                                    showTitle="false"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection3"
+                                            title=""
+                                        >
+                                            <uxap:blocks>
+                                                <Table
+                                                    id="contractTable"
+                                                    items="{myModel>/contracts}"
+                                                >
+                                                <headerToolbar>
+                                                <Toolbar>
+                                                <HBox alignItems="Center" width="50%" justifyContent="SpaceAround"
+                                                 >
+                                                <Label text = "Contract No" class="sapUiTinyMarginEnd" />
+                                                <SearchField value="" liveChange="onchange"  />
+                                                <ToolbarSpacer ></ToolbarSpacer>
+                                               <Label text = "Status" class="sapUiTinyMarginStart" />
+                                                <Input value="" liveChange="onchange"  />
+                                                
+                                                </HBox>
+                                                </Toolbar>
+                                                </headerToolbar>
+                                                    <columns>
+                                                        <Column
+                                                            id="_IDGenColumn1"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenText2"
+                                                                text="Contract No"
+                                                            />
+                                                        </Column>
+                                                        <Column
+                                                            id="_IDGenColumn2"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenText3"
+                                                                text="Contract Description"
+                                                            />
+                                                        </Column>
+                                                        <Column
+                                                            id="_IDGenColumn3"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenText4"
+                                                                text="Status"
+                                                            />
+                                                        </Column>
+                                                        <Column
+                                                            id="_IDGenColumn4"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenText5"
+                                                                text="Delivery Date"
+                                                            />
+                                                        </Column>
+                                                    </columns>
+                                                    <items>
+                                                        <ColumnListItem
+                                                            id="_IDGenColumnListItem1"
+                                                        >
+                                                            <cells>
+                                                                <Text
+                                                                    id="_IDGenText6"
+                                                                    text="{myModel>ContractNo}"
+                                                                />
+                                                                <Text
+                                                                    id="_IDGenText7"
+                                                                    text="{myModel>ContractDescription}"
+                                                                />
+                                                                <Text
+                                                                    id="_IDGenText8"
+                                                                    text="{myModel>Status}"
+                                                                />
+                                                                <Text
+                                                                    id="_IDGenText9"
+                                                                    text="{myModel>DeliveryDate}"
+                                                                />
+                                                            </cells>
+                                                        </ColumnListItem>
+                                                    </items>
+                                                </Table>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                            </uxap:sections>
+                        </uxap:ObjectPageLayout>
+                    </Page>
+
+                    <Page id="page2">
+                        <uxap:ObjectPageLayout
+                            id="ObjectPageLayout1"
+                            upperCaseAnchorBar="false"
+                            showAnchorBar="true"
+                            enableLazyLoading="true"
+                        >
+                            <uxap:sections>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection1"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection1"
+                                            title="GENERAL INFO "
+                                            titleUppercase="false"
+                                        >
+                                            <uxap:blocks>
+                                                <f:SimpleForm
+                                                    id="supplierForm"
+                                                    layout="ResponsiveGridLayout"
+                                                    labelSpanXL="3"
+                                                    labelSpanL="3"
+                                                    labelSpanM="3"
+                                                    labelSpanS="12"
+                                                    adjustLabelSpan="false"
+                                                >
+                                                    <Label
+                                                        id="_IDGenLabel1"
+                                                        text="Company Name in Full"
+                                                    />
+                                                    <Input
+                                                        id="_IDGenInput1"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_IDGenLabel2"
+                                                        text="Type of Legal Entity"
+                                                    />
+                                                    <Input
+                                                        id="_IDGenInput2"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_IDGenLabel3"
+                                                        text="Origin of Company"
+                                                    />
+                                                    <Input
+                                                        id="_IDGenInput3"
+                                                        value=""
+                                                    />
+                                                </f:SimpleForm>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection4"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection2"
+                                            title="COMPANY PROPERTIES"
+                                           
+                                        >
+                                            <uxap:blocks>
+                                                <f:SimpleForm
+                                                    id="supplierForm2"
+                                                    layout="ResponsiveGridLayout"
+                                                    labelSpanXL="3"
+                                                    labelSpanL="3"
+                                                    labelSpanM="3"
+                                                    labelSpanS="12"
+                                                    adjustLabelSpan="false"
+                                                >
+                                                    <Label
+                                                        id="_IDGenLabel11"
+                                                        text="BIN"
+                                                    />
+                                                    <Input
+                                                        id="_IDGenInput12"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_IDGenLabe2l2"
+                                                        text="TRN"
+                                                    />
+                                                    <Input
+                                                        id="_IDGenInput122"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_IDGenLabel13"
+                                                        text="BIC"
+                                                    />
+                                                    <Input
+                                                        id="lb5"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb1"
+                                                        text="VAT"
+                                                    />
+                                                    <Input
+                                                        id="lb2"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb3"
+                                                        text="State registration certificate number"
+                                                    />
+                                                    <Input
+                                                        id="lb4"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb6"
+                                                        text="Company shareholders"
+                                                    />
+                                                    <Input
+                                                        id="lb7"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb8"
+                                                        text="Type of Supplier"
+                                                    />
+                                                    <Input
+                                                        id="lb9"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb100"
+                                                        text="Country of Company origin"
+                                                    />
+                                                    <Input
+                                                        id="lb111"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb101"
+                                                        text="Year of Incorporation"
+                                                    />
+                                                    <Input
+                                                        id="lb21"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb12"
+                                                        text="Company Address (HQ)"
+                                                    />
+                                                    <Input
+                                                        id="lb13"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb22"
+                                                        text="Is Company Address (HQ) owned or leased?"
+                                                    />
+                                                    <Input
+                                                        id="lb23"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb10"
+                                                        text="Company Address (Branch)"
+                                                    />
+                                                    <Input
+                                                        id="lb31"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb25"
+                                                        text="Is Company Address (Branch) owned or leased?"
+                                                    />
+                                                    <Input
+                                                        id="lb11"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb26"
+                                                        text="Company Address (Factory, Warehouse Etc.)"
+                                                    />
+                                                    <Input
+                                                        id="lb40"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb27"
+                                                        text="Is Company Address (Factory, Warehouse Etc.) owned or leased?"
+                                                    />
+                                                    <Input
+                                                        id="lb41"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb268"
+                                                        text="Contact First Name"
+                                                    />
+                                                    <Input
+                                                        id="lb42"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb30"
+                                                        text="Contact Last Name"
+                                                    />
+                                                    <Input
+                                                        id="lb43"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb44"
+                                                        text="Contact Position"
+                                                    />
+                                                    <Input
+                                                        id="lb45"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb46"
+                                                        text="Contact Phone"
+                                                    />
+                                                    <Input
+                                                        id="lb47"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb48"
+                                                        text="Contact Email"
+                                                    />
+                                                    <Input
+                                                        id="lb49"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb50"
+                                                        text="Contact 2 First Name"
+                                                    />
+                                                    <Input
+                                                        id="lb51"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb52"
+                                                        text="Contact 2 Last Name"
+                                                    />
+                                                    <Input
+                                                        id="lb53"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb54"
+                                                        text="Contact 2 Position"
+                                                    />
+                                                    <Input
+                                                        id="lb55"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb56"
+                                                        text="Contact 2 Phone"
+                                                    />
+                                                    <Input
+                                                        id="lb57"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb58"
+                                                        text="Contact 2 Email"
+                                                    />
+                                                    <Input
+                                                        id="lb59"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="lb60"
+                                                        text="Website Address"
+                                                    />
+                                                    <Input
+                                                        id="t1"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="t2"
+                                                        text="Brief Description of Busines Activity"
+                                                    />
+                                                    <Input
+                                                        id="t3"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="t4"
+                                                        text="Kazakh Ownership (% of equity)"
+                                                    />
+                                                    <Input
+                                                        id="t5"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="t6"
+                                                        text="Total No. of Employees"
+                                                    />
+                                                    <Input
+                                                        id="t7"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="t8"
+                                                        text="%Local Employees"
+                                                    />
+                                                    <Input
+                                                        id="t9"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="t98"
+                                                        text="Work Experience/Customers"
+                                                    />
+                                                    <Input
+                                                        id="a1"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="a2"
+                                                        text="Certificates Licences and others"
+                                                    />
+                                                    <Input
+                                                        id="a3"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="a4"
+                                                        text="Please attach Certificates and Licenses"
+                                                    />
+                                                    <Input
+                                                        id="a5"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="a6"
+                                                        text="Business Associations, partnerships, concessionaires and etc."
+                                                    />
+                                                    <Input
+                                                        id="a7"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="a8"
+                                                        text="second year"
+                                                    />
+                                                    <Input
+                                                        id="a9"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="s1"
+                                                        text="third year"
+                                                    />
+                                                    <Input
+                                                        id="s2"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="s3"
+                                                        text="Kazakh Corp Tax Paid for 2021 "
+                                                    />
+                                                    <Input
+                                                        id="s4"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="s5"
+                                                        text="Kazakh Corp Tax Paid for 2022"
+                                                    />
+                                                    <Input
+                                                        id="s6"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="s7"
+                                                        text="Kazakh Corp Tax Paid for 2023 "
+                                                    />
+                                                    <Input
+                                                        id="s8"
+                                                        value=""
+                                                    />
+                                                </f:SimpleForm>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection5"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="IDGenObjectPageSubSection1223"
+                                            title="HEALTH AND SAFETY"
+                                        >
+                                            <uxap:blocks>
+                                                <f:SimpleForm
+                                                    id="supplierForm3"
+                                                    layout="ResponsiveGridLayout"
+                                                    labelSpanXL="3"
+                                                    labelSpanL="3"
+                                                    labelSpanM="3"
+                                                    labelSpanS="12"
+                                                    adjustLabelSpan="false"
+                                                >
+                                                    <Label
+                                                        id="_h1"
+                                                        text="Does the company have an approved Health and Safety Program?"
+                                                    />
+                                                    <Input
+                                                        id="_h2"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_h3"
+                                                        text="Is there a documented process to identify work-related hazards including task, work location, natural conditions and materials?"
+                                                    />
+                                                    <Input
+                                                        id="_h4"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_h5"
+                                                        text="Do you provide PPE to your personnel?"
+                                                    />
+                                                    <Input
+                                                        id="_h6"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_h7"
+                                                        text="Do you provide for your employees any of the following?"
+                                                    />
+                                                    <Input
+                                                        id="_h8"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="_h9"
+                                                        text="Does the company have conducted accounting loss of working time?"
+                                                    />
+                                                    <Input
+                                                        id="_h10"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="_h11"
+                                                        text="Any further Health and Safety comments/information"
+                                                    />
+                                                    <Input
+                                                        id="_h12"
+                                                        value=""
+                                                    />
+                                                </f:SimpleForm>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection6"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection4"
+                                            title="QUALITY CONTROL"
+                                        >
+                                            <uxap:blocks>
+                                                <f:SimpleForm
+                                                    id="supplierForm4"
+                                                    layout="ResponsiveGridLayout"
+                                                    labelSpanXL="3"
+                                                    labelSpanL="3"
+                                                    labelSpanM="3"
+                                                    labelSpanS="12"
+                                                    adjustLabelSpan="false"
+                                                >
+                                                    <Label
+                                                        id="_q1"
+                                                        text="Does your company have a recognised process/procedure to ensure quality control?"
+                                                    />
+                                                    <Input
+                                                        id="_q2"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_q3"
+                                                        text="Is there a person \ department responsible for the program management quality control?"
+                                                    />
+                                                    <Input
+                                                        id="_q4"
+                                                        value=""
+                                                    />
+                                                </f:SimpleForm>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection7"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection7"
+                                            title="ADDITIONAL INFORMATION"
+                                        >
+                                            <uxap:blocks>
+                                                <f:SimpleForm
+                                                    id="supplierForm7"
+                                                    layout="ResponsiveGridLayout"
+                                                    labelSpanXL="3"
+                                                    labelSpanL="3"
+                                                    labelSpanM="3"
+                                                    labelSpanS="12"
+                                                    adjustLabelSpan="false"
+                                                >
+                                                    <Label
+                                                        id="_ai1"
+                                                        text="Category"
+                                                    />
+                                                    <Input
+                                                        id="_ai2"
+                                                        value=""
+                                                    />
+
+                                                    <Label
+                                                        id="_ai3"
+                                                        text="Region"
+                                                    />
+                                                    <Input
+                                                        id="_ai4"
+                                                        value=""
+                                                    />
+                                                    <Label
+                                                        id="_ai5"
+                                                        text="Department"
+                                                    />
+                                                    <Input
+                                                        id="_ai6"
+                                                        value=""
+                                                    />
+                                                </f:SimpleForm>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection8"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection5"
+                                            title="ATTACHMENTS"
+                                        >
+                                            <uxap:blocks>
+                                                <upload:UploadSet
+                                                    id="UploadSet"
+                                                    instantUpload="true"
+                                                    showIcons="true"
+                                                    uploadEnabled="true"
+                                                    terminationEnabled="true"
+                                                    fileTypes="txt,doc,png"
+                                                    maxFileNameLength="30"
+                                                    maxFileSize="200"
+                                                    mediaTypes="text/plain,application/msword,image/png"
+                                                    uploadUrl="../../../../upload"
+                                                    items="{path: '/items', templateShareable: false}"
+                                                    mode="MultiSelect"
+                                                    selectionChanged="onSelectionChange"
+                                                >
+                                                    <upload:toolbar>
+                                                        <OverflowToolbar
+                                                            id="_IDGenOverflowToolbar1"
+                                                        >
+                                                            <ToolbarSpacer
+                                                                id="_IDGenToolbarSpacer1"
+                                                            />
+
+                                                            <upload:UploadSetToolbarPlaceholder
+                                                                id="_IDGenUploadSetToolbarPlaceholder1"
+                                                            />
+                                                        </OverflowToolbar>
+                                                    </upload:toolbar>
+                                                    <upload:items>
+                                                        <upload:UploadSetItem
+                                                            id="_IDGenUploadSetItem1"
+                                                            fileName="{fileName}"
+                                                            mediaType="{mediaType}"
+                                                            url="{url}"
+                                                            thumbnailUrl="{thumbnailUrl}"
+                                                            markers="{path: 'markers', templateShareable: false}"
+                                                            statuses="{path: 'statuses', templateShareable: false}"
+                                                            uploadState="{uploadState}"
+                                                        >
+                                                            <upload:markers>
+                                                                <ObjectMarker
+                                                                    id="_IDGenObjectMarker1"
+                                                                    type="{type}"
+                                                                    visibility="{visibility}"
+                                                                />
+                                                            </upload:markers>
+                                                            <upload:statuses>
+                                                                <ObjectStatus
+                                                                    id="_IDGenObjectStatus1"
+                                                                    title="{title}"
+                                                                    text="{text}"
+                                                                    state="{state}"
+                                                                    icon="{icon}"
+                                                                    active="{active}"
+                                                                />
+                                                            </upload:statuses>
+                                                        </upload:UploadSetItem>
+                                                    </upload:items>
+                                                </upload:UploadSet>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                            </uxap:sections>
+                        </uxap:ObjectPageLayout>
+
+                        <!-- <f:SimpleForm
+                            id="supplierForm"
+                            title="Supplier Registration"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="3"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                        >
+                            <Label
+                                id="_IDGenLabel1"
+                                text="Demand ID"
+                            />
+                            <Input
+                                id="_IDGenInput1"
+                                value=""
+                            />
+
+                            <Label
+                                id="_IDGenLabel2"
+                                text="Description"
+                            />
+                            <Input
+                                id="_IDGenInput2"
+                                value=""
+                            />
+
+                            <Label
+                                id="_IDGenLabel3"
+                                text="Start Year"
+                            />
+                            <Input
+                                id="_IDGenInput3"
+                                value=""
+                            />
+                        </f:SimpleForm> -->
+                    </Page>
+                </pages>
+            </NavContainer>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>
