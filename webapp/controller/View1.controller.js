@@ -296,6 +296,9 @@ sap.ui.define([
                 }
             }
         },
+        closeFileUplaodFragment: function(){
+            this._fileUploadFragment.close();
+        },
         itemValidationCallback: function (oItemInfo) {
             const { oItem, iTotalItemsForUpload } = oItemInfo;
             var oUploadSetTableInstance = this.byId("UploadSetTable");

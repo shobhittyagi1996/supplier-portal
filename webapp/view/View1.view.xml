@@ -226,6 +226,12 @@
                     </Page>
 
                     <Page id="page2">
+                        <Toolbar id="_IDGenToolbar2">
+                            <ToolbarSpacer id="_IDGenToolbarSpacer4" />
+                            <Button id="_IDGenButton3" text="Save" />
+                            <Button id="_IDGenButton4" text="Submit" />
+                            <Button id="_IDGenButton5" text="Cancel" />
+                        </Toolbar>
                         <uxap:ObjectPageLayout
                             id="ObjectPageLayout1"
                             upperCaseAnchorBar="false"
@@ -917,6 +923,7 @@
                                                 <Panel
                                                     id="_IDGenPanel101"
                                                     expandable="true"
+                                                    expanded="true"
                                                     width="auto"
                                                 >
                                                     <f:SimpleForm
@@ -974,6 +981,7 @@
                                                 <Panel
                                                     id="_IDGenPanel0"
                                                     expandable="true"
+                                                    expanded="true"
                                                     width="auto"
                                                 >
                                                     <upload:UploadSetwithTable
@@ -1149,7 +1157,6 @@
                                                                     <HBox
                                                                         id="_IDGenHBox2"
                                                                     >
-                                                
                                                                         <core:Icon
                                                                             id="_IDGenIcon1"
                                                                             src="{sModel>mediaType}"
