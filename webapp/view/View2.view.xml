@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="com.sap.supplierportal.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page id="page2">
+        <content>
+            <Table
+                id="detailTable"
+                items="{qsModel>/}"
+            >
+                <columns>
+                    <Column>
+                        <Text text="questions" />
+                    </Column>
+                    <Column>
+                        <Text text="Response" />
+                    </Column>
+                    <Column>
+                        <Text text="Details" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{qsModel>question}" />
+                            <RadioButtonGroup id="GroupA">
+                                <RadioButton
+                                    text="Yes"
+                                    selected="true"
+                                />
+                                <RadioButton text="No" />
+                            </RadioButtonGroup>
+                            <TextArea text="{qsModel>details}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button text="submit to approval" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

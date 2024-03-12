@@ -1,22 +1,22 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-	"sap/m/upload/UploadSetwithTable",
-	"sap/m/upload/UploadSetwithTableItem",
-	"sap/m/MessageBox",
-	"sap/ui/core/Fragment",
-	"sap/m/MessageToast",
-	"sap/m/Dialog",
-	"sap/m/Button",
-	"sap/m/library",
-	"sap/m/Text",
-	"sap/ui/core/library",
-	"sap/ui/core/Item",
-	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator",
-	"sap/ui/core/Element"
-], function (Controller, JSONModel, UploadSetwithTable, UploadSetwithTableItem, MessageBox, Fragment, MessageToast, Dialog, Button, mobileLibrary, Text, coreLibrary, CoreItem, Filter, FilterOperator, Element)  {
-	"use strict";
+    "sap/m/upload/UploadSetwithTable",
+    "sap/m/upload/UploadSetwithTableItem",
+    "sap/m/MessageBox",
+    "sap/ui/core/Fragment",
+    "sap/m/MessageToast",
+    "sap/m/Dialog",
+    "sap/m/Button",
+    "sap/m/library",
+    "sap/m/Text",
+    "sap/ui/core/library",
+    "sap/ui/core/Item",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/Element"
+], function (Controller, JSONModel, UploadSetwithTable, UploadSetwithTableItem, MessageBox, Fragment, MessageToast, Dialog, Button, mobileLibrary, Text, coreLibrary, CoreItem, Filter, FilterOperator, Element) {
+    "use strict";
 
     return Controller.extend("com.sap.supplierportal.controller.View1", {
         onInit: function () {
@@ -95,28 +95,49 @@ sap.ui.define([
                 {
                     "text": "Intensive Program"
                 }];
-                let sDropdown = [
-                    {
-                        "filename":"State registration certificate of legal entity.xls",
-                        "mediaType": "sap-icon://excel-attachment",
-                       
-                       "type": "State registration certificate of legal entity"
-    
-                    },
-                    {
-                        "filename":"Certificate of VAT registration.pdf",
-                        "mediaType": "sap-icon://pdf-attachment",
-                        
-                       "type": "Certificate of VAT registration.png"
-                    },
-                    {
-                        "filename":"Tax registration certificate.txt",
-                        "mediaType": "sap-icon://doc-attachment",
-                       
-                       "type": "Tax registration certificate"
-                    }];
-                    let gmodel = new JSONModel(sDropdown);
-                    this.getView().setModel(gmodel, "sModel");
+            let sDropdown = [
+                {
+                    "filename": "State registration certificate of legal entity.xls",
+                    "mediaType": "sap-icon://excel-attachment",
+
+                    "type": "State registration certificate of legal entity"
+
+                },
+                {
+                    "filename": "Certificate of VAT registration.pdf",
+                    "mediaType": "sap-icon://pdf-attachment",
+
+                    "type": "Certificate of VAT registration.png"
+                },
+                {
+                    "filename": "Tax registration certificate.txt",
+                    "mediaType": "sap-icon://doc-attachment",
+
+                    "type": "Tax registration certificate"
+                }];
+            let aDropdown = [
+                {
+                    "assesmentid": "56234",
+                    "assesmenttype": "EDD",
+
+                    "completeby": "john",
+                    "status": "Pending"
+
+                },
+                {
+                    "assesmentid": "57212",
+                    "assesmenttype": "Integrity check",
+
+                    "completeby": "James",
+                    "status": "Completed"
+
+                }
+            ];
+
+            let amodel = new JSONModel(aDropdown);
+            this.getView().setModel(amodel, "aModel");
+            let gmodel = new JSONModel(sDropdown);
+            this.getView().setModel(gmodel, "sModel");
 
             let smodel = new JSONModel(Dropdown);
             this.getView().setModel(smodel, "lModel");
@@ -218,6 +239,11 @@ sap.ui.define([
                 return false;
             }
         },
+        onRowPress: function () {
+            debugger
+
+            this.getOwnerComponent().getRouter().navTo("RouteView2");
+        },
         getFileCategories: function () {
             return [
                 { categoryId: "State registration certificate of legal entity", categoryText: "State registration certificate of legal entity" },
@@ -296,7 +322,7 @@ sap.ui.define([
                 }
             }
         },
-        closeFileUplaodFragment: function(){
+        closeFileUplaodFragment: function () {
             this._fileUploadFragment.close();
         },
         itemValidationCallback: function (oItemInfo) {

@@ -42,7 +42,7 @@
                 <IconTabHeader
                     id="_IDGenIconTabHeader1"
                     selectedKey="{/selectedKey}"
-                    items=""
+                    
                     select="onItemSelect"
                     mode="Inline"
                 >
@@ -69,6 +69,11 @@
                             id="_IDGenIconTabFilter3"
                             text="MANAGE CONTRACTS"
                             key="page3"
+                        />
+                        <IconTabFilter
+                            id="_IDGenIconTabFilter4"
+                            text="ASSESSMENTS"
+                            key="page4"
                         />
                     </items>
                 </IconTabHeader>
@@ -1249,6 +1254,96 @@
                                 value=""
                             />
                         </f:SimpleForm> -->
+                    </Page>
+                    <Page id="page4">
+                        <uxap:ObjectPageLayout
+                            id="ObjectPageLayout111"
+                            upperCaseAnchorBar="false"
+                            showAnchorBar="true"
+                            enableLazyLoading="true"
+                        >
+                            <uxap:sections>
+                                <uxap:ObjectPageSection
+                                    id="_IDGenObjectPageSection57"
+                                    showTitle="false"
+                                >
+                                    <uxap:subSections>
+                                        <uxap:ObjectPageSubSection
+                                            id="_IDGenObjectPageSubSection59"
+                                            title=""
+                                        >
+                                            <uxap:blocks>
+                                                <Table
+                                                    id="assessment"
+                                                    items="{aModel>/}"
+                                                >
+                                                                                                       <columns>
+                                                        <Column
+                                                            id="_IDGenCol1"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenT2"
+                                                                text="Assessment ID"
+                                                            />
+                                                        </Column>
+                                                        <Column
+                                                            id="_IDGenCol2"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenT3"
+                                                                text="Assessment Type"
+                                                            />
+                                                        </Column>
+                                                        <Column
+                                                            id="_IDGenCol3"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenT4"
+                                                                text="Complete by"
+                                                            />
+                                                        </Column>
+                                                        <Column
+                                                            id="_IDGenCol4"
+                                                        >
+                                                            <Text
+                                                                id="_IDGenT5"
+                                                                text="Status"
+                                                            />
+                                                        </Column>
+                                                    </columns>
+                                                    <items>
+                                                        <ColumnListItem
+                                                            id="_IDGenColumnL1"
+                                                            type="Active"
+                                                            press="onRowPress"
+                                                        >
+                                                            <cells>
+                                                                <Text
+                                                                    id="_IDGenT6"
+                                                                    text="{aModel>assesmentid}"
+                                                                />
+                                                                <Text
+                                                                    id="_IDGenT7"
+                                                                    text="{aModel>assesmenttype}"
+                                                                />
+                                                                <Text
+                                                                    id="_IDGenT8"
+                                                                    text="{aModel>completeby}"
+                                                                />
+                                                                <Text
+                                                                    id="_IDGenT9"
+                                                                    text="{aModel>status}"
+                                                                />
+                                                            </cells>
+                                                        </ColumnListItem>
+                                                    </items>
+                                                </Table>
+                                            </uxap:blocks>
+                                        </uxap:ObjectPageSubSection>
+                                    </uxap:subSections>
+                                </uxap:ObjectPageSection>
+                            </uxap:sections>
+                        </uxap:ObjectPageLayout>
                     </Page>
                 </pages>
             </NavContainer>
